@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Quz extends StatefulWidget {
-  Quz(
-      {required this.Question,
-      required this.Answer1,
-      required this.Answer2,
-      required this.Answer3,
-      required this.Answer4});
+  Quz({
+    required this.Question,
+    required this.Answer1,
+    required this.Answer2,
+    required this.Answer3,
+    required this.Answer4,
+    required this.value1,
+    required this.value2,
+    required this.value3,
+    required this.value4,
+    required this.correctAns,
+  });
+  String? correctAns;
   String? Answer1;
   String? Answer2;
 
@@ -14,6 +21,12 @@ class Quz extends StatefulWidget {
 
   String? Answer4;
   String? Question;
+  String? value1 = "";
+  String? value2 = "";
+  String? value3 = "";
+  String? value4 = "";
+  String? userAnswer = "malak";
+
   // String? value= Answer1;
 
   @override
@@ -36,18 +49,29 @@ class _QuzState extends State<Quz> {
         ),
         Text(widget.Question!),
         DropdownButton(
-            value: "answer",
+            value: widget.userAnswer,
             items: [
               DropdownMenuItem(
                 child: Text(widget.Answer1!),
-                value: "answer",
+                value: widget.userAnswer,
               ),
-              DropdownMenuItem(child: Text(widget.Answer2!)),
-              DropdownMenuItem(child: Text(widget.Answer3!)),
-              DropdownMenuItem(child: Text(widget.Answer4!)),
+              DropdownMenuItem(
+                child: Text(widget.Answer2!),
+                value: widget.value2,
+              ),
+              DropdownMenuItem(
+                child: Text(widget.Answer3!),
+                value: widget.value3,
+              ),
+              DropdownMenuItem(
+                child: Text(widget.Answer4!),
+                value: widget.value4,
+              ),
             ],
             onChanged: (val) {
-              setState(() {});
+              setState(() {
+                widget.userAnswer = val;
+              });
             }),
         TextButton.icon(
             onPressed: () {},

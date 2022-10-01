@@ -52,40 +52,15 @@ class _QuizState extends State<Quiz> {
             child: TabBarView(children: [
               Quz(
                   Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar'),
-              Quz(
-                  Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar'),
-              Quz(
-                  Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar'),
-              Quz(
-                  Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar'),
-              Quz(
-                  Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar'),
-              Quz(
-                  Question: 'what is your name?',
-                  Answer1: 'Malak',
-                  Answer2: 'Mohammad',
-                  Answer3: 'Noor',
-                  Answer4: 'Omar')
+                  Answer1: "malak",
+                  Answer2: "Mohammad",
+                  Answer3: "Noor",
+                  Answer4: "Heba",
+                  value1: "malak",
+                  value2: "Mohammad",
+                  value3: "Noor",
+                  value4: "Heba",
+                  correctAns: "malak")
             ]),
           ),
         ));
