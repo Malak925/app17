@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 class Quz extends StatefulWidget {
   Quz({
@@ -25,7 +26,7 @@ class Quz extends StatefulWidget {
   String? value2 = "";
   String? value3 = "";
   String? value4 = "";
-  String? userAnswer = "malak";
+  String? userAnswer = "put on";
 
   // String? value= Answer1;
 
@@ -36,7 +37,7 @@ class Quz extends StatefulWidget {
 class _QuzState extends State<Quz> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
       child: ListView(children: [
         Container(
           alignment: Alignment.center,
@@ -47,36 +48,77 @@ class _QuzState extends State<Quz> {
                   image: NetworkImage(
                       "https://image.shutterstock.com/image-photo/decision-making-concept-row-question-260nw-80526127.jpg"))),
         ),
-        Text(widget.Question!),
-        DropdownButton(
-            value: widget.userAnswer,
-            items: [
-              DropdownMenuItem(
-                child: Text(widget.Answer1!),
-                value: widget.userAnswer,
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            widget.Question!,
+            style: TextStyle(color: Colors.brown, fontSize: 30),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Center(
+          child: DropdownButton(
+              value: widget.userAnswer,
+              items: [
+                DropdownMenuItem(
+                  child: Text(widget.Answer1!),
+                  value: widget.value1,
+                ),
+                DropdownMenuItem(
+                  child: Text(widget.Answer2!),
+                  value: widget.value2,
+                ),
+                DropdownMenuItem(
+                  child: Text(widget.Answer3!),
+                  value: widget.value3,
+                ),
+                DropdownMenuItem(
+                  child: Text(widget.Answer4!),
+                  value: widget.value4,
+                ),
+              ],
+              onChanged: (val) {
+                setState(() {
+                  widget.userAnswer = val;
+                });
+              }),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50),
+          child: TextButton.icon(
+              onPressed: () {
+                setState(() {
+                  if (widget.userAnswer == widget.correctAns) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Correct Answer!!"),
+                            icon: Icon(Ionicons.gift),
+                          );
+                        });
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("wrong Answer!!"),
+                            icon: Icon(Ionicons.battery_dead),
+                          );
+                        });
+                  }
+                });
+              },
+              icon: Icon(
+                Icons.check,
+                color: Colors.brown,
+                size: 50,
               ),
-              DropdownMenuItem(
-                child: Text(widget.Answer2!),
-                value: widget.value2,
-              ),
-              DropdownMenuItem(
-                child: Text(widget.Answer3!),
-                value: widget.value3,
-              ),
-              DropdownMenuItem(
-                child: Text(widget.Answer4!),
-                value: widget.value4,
-              ),
-            ],
-            onChanged: (val) {
-              setState(() {
-                widget.userAnswer = val;
-              });
-            }),
-        TextButton.icon(
-            onPressed: () {},
-            icon: Icon(Icons.check),
-            label: Text("Check answer"))
+              label: Text(
+                "Check answer",
+                style: TextStyle(color: Colors.brown, fontSize: 20),
+              )),
+        )
       ]),
     );
   }
