@@ -14,7 +14,7 @@ class Quz extends StatefulWidget {
 
   String? Answer4;
   String? Question;
-  // String value= Answer1!;
+  // String? value= Answer1;
 
   @override
   State<Quz> createState() => _QuzState();
