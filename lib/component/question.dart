@@ -8,10 +8,14 @@ class Quz extends StatefulWidget {
     required this.Answer2,
     required this.Answer3,
     required this.Answer4,
+    required this.Answer5,
+    required this.Answer6,
     required this.value1,
     required this.value2,
     required this.value3,
     required this.value4,
+    required this.value5,
+    required this.value6,
     required this.correctAns,
   });
   String? correctAns;
@@ -21,11 +25,15 @@ class Quz extends StatefulWidget {
   String? Answer3;
 
   String? Answer4;
+  String? Answer5;
+  String? Answer6;
   String? Question;
-  String? value1 = "";
+  String value1 = "";
   String? value2 = "";
   String? value3 = "";
   String? value4 = "";
+  String? value5 = "";
+  String? value6 = "";
   String? userAnswer = "put on";
 
   // String? value= Answer1;
@@ -76,6 +84,14 @@ class _QuzState extends State<Quz> {
                   child: Text(widget.Answer4!),
                   value: widget.value4,
                 ),
+                DropdownMenuItem(
+                  child: Text(widget.Answer5!),
+                  value: widget.value5,
+                ),
+                DropdownMenuItem(
+                  child: Text(widget.Answer6!),
+                  value: widget.value6,
+                ),
               ],
               onChanged: (val) {
                 setState(() {
@@ -94,7 +110,7 @@ class _QuzState extends State<Quz> {
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Correct Answer!!"),
-                            icon: Icon(Ionicons.gift),
+                            icon: Icon(Ionicons.happy),
                           );
                         });
                   } else {
@@ -103,7 +119,7 @@ class _QuzState extends State<Quz> {
                         builder: (context) {
                           return AlertDialog(
                             title: Text("wrong Answer!!"),
-                            icon: Icon(Ionicons.battery_dead),
+                            icon: Icon(Ionicons.sad),
                           );
                         });
                   }

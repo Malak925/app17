@@ -6,6 +6,7 @@ import 'Home.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(fontFamily: 'Alkalami'),
     home: MyApp(),
   ));
 }
