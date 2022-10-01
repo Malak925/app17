@@ -35,7 +35,7 @@ class Quz extends StatefulWidget {
   String? value5 = "";
   String? value6 = "";
   String? userAnswer = "put on";
-
+  int cnt = 0;
   // String? value= Answer1;
 
   @override
@@ -113,6 +113,7 @@ class _QuzState extends State<Quz> {
                             icon: Icon(Ionicons.happy),
                           );
                         });
+                    widget.cnt++;
                   } else {
                     showDialog(
                         context: context,
@@ -122,6 +123,7 @@ class _QuzState extends State<Quz> {
                             icon: Icon(Ionicons.sad),
                           );
                         });
+                    widget.cnt--;
                   }
                 });
               },
@@ -134,7 +136,32 @@ class _QuzState extends State<Quz> {
                 "Check answer",
                 style: TextStyle(color: Colors.brown, fontSize: 20),
               )),
-        )
+        ),
+        TextButton.icon(
+            onPressed: () {
+              setState(() {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text(
+                          "Score",
+                          style: TextStyle(color: Colors.brown),
+                        ),
+                        icon: Icon(
+                          Ionicons.gift,
+                          color: Colors.pink,
+                        ),
+                        content: Text(widget.cnt.toString()),
+                      );
+                    });
+              });
+            },
+            icon: Icon(
+              Ionicons.gift,
+              color: Colors.pink,
+            ),
+            label: Text(""))
       ]),
     );
   }
