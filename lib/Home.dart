@@ -190,6 +190,7 @@ class Home extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) {
             return FloatingActionButton(
+              backgroundColor: Colors.pink,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return Future();
